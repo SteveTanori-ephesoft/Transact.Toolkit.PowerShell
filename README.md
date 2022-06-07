@@ -54,7 +54,7 @@ Get-Help -Name Submit-TransactBatch -Full
 ## Examples of Consuming Transact Web Services using PowerShell
 The examples presented in the powershell script file are meant to provide examples of consuming the following Transact Web Service Calls. These can be used as a starting point to help build out calls to other Transact Web Service calls that are available.
 
-### Transact Web Services: ###
+### Example Transact Web Services: ###
 
 * Learn Fuzzy DB
 * Restart a Batch Instance
@@ -84,7 +84,7 @@ The Transact Server that the web service call is sent to should have "Web Servic
 	![UserCredSetup.png](ReadMeImages/UserCredSetup.png)
 	
 
-### Configuring Learn Fuzzy DB Web Service ###
+#### Example - Configuring Learn Fuzzy DB Web Service ###
 
 To use/consume the "Learn Fuzzy DB" Web Service call in Transact, the following variables can be configured in the Powershell script example:
 
@@ -93,7 +93,7 @@ To use/consume the "Learn Fuzzy DB" Web Service call in Transact, the following 
 	
 ![LearnFuzzyDBSetup.png](ReadMeImages/LearnFuzzyDBSetup.png)
 
-### Configuring Restart a Batch Instance Web Service ###
+#### Example - Configuring Restart a Batch Instance Web Service ###
 
 To use/consume the "Restart Batch Instance" Web Service call in Transact, the following variables can be configured in the Powershell script example:
 
