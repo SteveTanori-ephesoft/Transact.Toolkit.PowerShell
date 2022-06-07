@@ -52,44 +52,56 @@ Get-Help -Name Submit-TransactBatch -Full
 ```
 
 ## Examples of Consuming Transact Web Services using PowerShell
+
 The examples presented in the powershell script file are meant to provide examples of consuming the following Transact Web Service Calls. These can be used as a starting point to help build out calls to other Transact Web Service calls that are available.
 
-### Example Transact Web Services: ###
+### Example Transact Web Services provided: ###
 
 * Learn Fuzzy DB
 * Restart a Batch Instance
 
 
 ### Pre-requisite ###
-The Transact Server that the web service call is sent to should have "Web Services" enabled on the Ephesoft Transact License.
 
-### Configuring the Powershell Script ###
+1) <strong>The Transact Server that the web service call is sent to should have "Web Services" enabled on the Ephesoft Transact License.</strong>
 
-- First step is to fill out the Transact Server and Port information:
-	* Set $TransactHostname to "Name of Transact Server Hostname" Note: "localhost" is used by default if running on Transact server directly
-	* Set $TransactServerPort to "Transact Port"; If using Out of Box http, then it would normally be "8080", however if using SSL, it is most likely "443"
-	* Set $httpOrHTTPS to "http" or "https" depending on how the Transact Server is configured. If using Out of Box configuration, most likely leave default as "http"
+![WebServiceSwitch.png](ReadMeImages/WebServiceSwitch.png)
+
+2) Powershell v7 - These examples are designed to work on PowerShell 7, you will need to run them in v7 of Powershell:
+
+https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2
+
+
+### Configuring the Powershell Script Examples ###
+
+1) First step is to fill out the following variables for the Transact server environment:
+
+* <strong>$TransactHostname</strong> -  Specify the hostname of Transact Server. The value of "localhost" is used by default if running on Transact server directly
+* <strong>$TransactServerPort</strong> - Specify the port being used by Transact Server. If using Out of Box (OOB) for http, then it would normally be "8080", however if using SSL, it is most likely "443"
+* <strong>$httpOrHTTPS</strong> - Specify either "http" or "https" depending on Transact configuration. If using Out of Box configuration, most likely leave default as "http"
 	
+
+![ServerSetupInfo.png](ReadMeImages/ServerSetupInfo.png)
+
+2) Second steps is to fill out User Credential/Authenitcation information:
+
+For OOB Tomcat authentication or LDAP, configure the following:
+
+* <strong>$user</strong> - username of Transact User
+* <strong>$pass</strong> - password of Transact User
+
 	
-	![ServerSetupInfo.png](ReadMeImages/ServerSetupInfo.png)
-	
-	
-- Fill out User Credential/Authenitcation information:
-	* If using OOB Tomcat authentication or LDAP, configure the following:
-	** $user - username of Transact User
-	** $pass - password of Transact User
-	
-	* If using SSO, then comment out lines 20 - 26, these are used for basic Tomcat/ldap authentication. The script will utilize the credentials of the logged in user/executing the Powershell script when attempting to make the Transact Web Service call
-	
-	![UserCredSetup.png](ReadMeImages/UserCredSetup.png)
-	
+For SSO, then comment out lines 20 - 26, these are used for basic Tomcat/ldap authentication. The script will utilize the credentials of the logged in user/executing the Powershell script when attempting to make the Transact Web Service call
+
+![UserCredSetup.png](ReadMeImages/UserCredSetup.png)
+
 
 #### Example - Configuring Learn Fuzzy DB Web Service ###
 
 To use/consume the "Learn Fuzzy DB" Web Service call in Transact, the following variables can be configured in the Powershell script example:
 
-* $batchClassID - This should be the Batch Class you want to perform the "Learn Fuzzy DB" action on
-* $docType - This should be the "Document Type Name" that is in the Batch Class containing the Fuzzy Database configuration that you want to "Learn DB"
+* <strong>$batchClassID</strong> - This should be the Batch Class you want to perform the "Learn Fuzzy DB" action on
+* <strong>$docType</strong> - This should be the "Document Type Name" that is in the Batch Class containing the Fuzzy Database configuration that you want to "Learn DB"
 	
 ![LearnFuzzyDBSetup.png](ReadMeImages/LearnFuzzyDBSetup.png)
 
@@ -97,11 +109,11 @@ To use/consume the "Learn Fuzzy DB" Web Service call in Transact, the following 
 
 To use/consume the "Restart Batch Instance" Web Service call in Transact, the following variables can be configured in the Powershell script example:
 
-* $batchIDtoRestart - This should be the Batch Instance ID of the Batch you wish to restart
-* $moduleToRestart - This should be the "Module Name" at which point in the Batch Class workflow that you wish to Restart the Batch Instance. For example, in the default value provided "Extraction_Module", the Batch will be restarted at "Extraction" in the Batch Workflow.
+* <strong>$batchIDtoRestart</strong> - This should be the Batch Instance ID of the Batch you wish to restart
+* <strong>$moduleToRestart</strong> - This should be the "Module Name" at which point in the Batch Class workflow that you wish to Restart the Batch Instance. For example, in the default value provided "Extraction_Module", the Batch will be restarted at "Extraction" in the Batch Workflow.
 	
 ![RestartBISetup.png](ReadMeImages/RestartBISetup.png)
-	
+
 	
 ### Link for all available Transact Web Service calls ###
 
